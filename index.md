@@ -11,12 +11,12 @@ lang = "en"
 toc = true
 comment = false
 copy = true
-outdate_alert = true
+outdate_alert = false
 outdate_alert_days = 180
 math = false
 mermaid = false
 featured = true
-reaction = true
+reaction = false
 +++
 
 # 🐧 Headless Linux Dev Setup
