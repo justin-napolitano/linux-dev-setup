@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+. "$DIR/01_detect.sh"
+
+echo "==> Installing Neovim and configuring plugins (lazy.nvim)"
+
+# -------- helpers --------
+ver_ge () {  # ver_ge <have> <need>  (returns 0 if have >= need)
+  [ "$(printf '%s\n' "$2" "$1" | sort -V | head -n1)" = "$2" ]
+}
+
+have_modern_nvim () {
+  if ! command -v nvim >/dev/null 2>&1; then return 1; fi
+  local ver
+  ver="$(nvim --version | head -n1 | sed -E 's/.*v([0-9]+\.[0-9]+(\.[0-9]+)?).*/\1/')"
+  ver_ge "$ver" "0.8.0"
+}
+
+install_nvim_pkg () {
+  case "$PKG_MGR" in
+    apt)
+      sudo apt-get update
+      sudo apt-get install -y curl git ripgrep fd-find software-properties-common
+      command -v fd >/dev/null 2>&1 || sudo ln -sf "$(command -v fdfind)" /usr/local/bin/fd || true
+      # Try PPA to get a modern Neovim
+      sudo add-apt-repository -y ppa:neovim-ppa/stable || true
+      sudo apt-get update || true
+      sudo apt-get install -y neovim || true
+      ;;
+    dnf)
+      sudo dnf install -y neovim curl git ripgrep fd-find || true
+      ;;
+    pacman)
+      sudo pacman -Sy --noconfirm neovim curl git ripgrep fd || true
+      ;;
+    zypper)
+      sudo zypper --non-interactive install -y neovim curl git ripgrep fd || true
+      ;;
+    brew)
+      brew install neovim curl git ripgrep fd || true
+      ;;
+  esac
+}
+
+install_nvim_appimage () {
+  echo "-> Installing Neovim AppImage fallback"
+  tmp="/tmp/nvim.appimage"
+  curl -fsSL -o "$tmp" https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  chmod +x "$tmp"
+  sudo mv "$tmp" /usr/local/bin/nvim
+}
+
+# -------- install flow --------
+install_nvim_pkg
+if ! have_modern_nvim; then
+  echo "-> System package provides old Neovim; using AppImage fallback"
+  install_nvim_appimage
+fi
+
+echo "-> Using Neovim at: $(command -v nvim)"
+nvim --version | head -n1
+
+# -------- deploy config --------
+REPO_ROOT="$(cd "$DIR/.." && pwd)"
+NVIM_DIR="$HOME/.config/nvim"
+if [ -d "$NVIM_DIR" ]; then
+  mv "$NVIM_DIR" "$NVIM_DIR.bak.$(date +%s)" || true
+fi
+mkdir -p "$NVIM_DIR"/lua/plugins
+cp "$REPO_ROOT/dotfiles/nvim/init.lua" "$NVIM_DIR/"
+cp -r "$REPO_ROOT/dotfiles/nvim/lua" "$NVIM_DIR/"
+
+# Only run Lazy sync on supported versions
+if have_modern_nvim; then
+  echo "-> Bootstrapping plugins (headless)"
+  nvim --headless '+Lazy! sync' '+qall' || true
+else
+  echo "-> Skipping Lazy sync because Neovim < 0.8"
+fi
+
+echo "✅ Neovim setup complete."
+
