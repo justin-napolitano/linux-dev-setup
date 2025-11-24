@@ -1,12 +1,29 @@
 ---
-slug: "github-linux-dev-setup"
-title: "linux-dev-setup"
-repo: "justin-napolitano/linux-dev-setup"
-githubUrl: "https://github.com/justin-napolitano/linux-dev-setup"
-generatedAt: "2025-11-23T09:14:04.109039Z"
-source: "github-auto"
+slug: github-linux-dev-setup
+title: Modular Linux Developer Setup with Makefile and Shell Scripts
+repo: justin-napolitano/linux-dev-setup
+githubUrl: https://github.com/justin-napolitano/linux-dev-setup
+generatedAt: '2025-11-23T09:14:04.109039Z'
+source: github-auto
+summary: >-
+  Modular, cross-distribution Linux development environment setup using Makefile orchestration and
+  shell scripts for shells, editors, containers, and security.
+tags:
+  - linux
+  - dev-environment
+  - makefile
+  - shell-scripting
+  - docker
+  - security
+seoPrimaryKeyword: linux development environment setup
+seoSecondaryKeywords:
+  - makefile automation
+  - shell script installation
+  - cross-distribution setup
+  - docker rootless
+  - security hardening
+seoOptimized: true
 ---
-
 
 # Linux Dev Setup: Technical Overview and Implementation Notes
 
