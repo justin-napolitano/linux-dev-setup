@@ -23,6 +23,12 @@ seoSecondaryKeywords:
   - docker rootless
   - security hardening
 seoOptimized: true
+topicFamily: devtools
+topicFamilyConfidence: 0.95
+topicFamilyNotes: >-
+  The post focuses on configuring and automating a Linux development environment including shell,
+  editor, containers, and system setup, which aligns closely with the 'devtools' family description
+  and example slugs.
 ---
 
 # Linux Dev Setup: Technical Overview and Implementation Notes
@@ -92,3 +98,4 @@ Additional Makefile targets `fix-zsh` and `fix-vim` are provided to repair or re
 This repository provides a pragmatic, modular approach to Linux development environment setup, emphasizing compatibility across distributions and headless operation. It leverages shell scripting and Makefile orchestration to automate installation and configuration of shells, editors, containers, and security features. The design choices reflect practical trade-offs between automation, flexibility, and user control.
 
 The setup is suitable for developers and engineers seeking a repeatable, maintainable Linux dev environment provisioning process without reliance on heavyweight configuration management tools.
+
