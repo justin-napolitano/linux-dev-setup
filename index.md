@@ -1,13 +1,13 @@
 ---
 slug: github-linux-dev-setup
-title: Modular Linux Developer Setup with Makefile and Shell Scripts
+title: Automated Linux Development Environment Setup Guide
 repo: justin-napolitano/linux-dev-setup
 githubUrl: https://github.com/justin-napolitano/linux-dev-setup
 generatedAt: '2025-11-23T09:14:04.109039Z'
 source: github-auto
 summary: >-
-  Modular, cross-distribution Linux development environment setup using Makefile orchestration and
-  shell scripts for shells, editors, containers, and security.
+  Learn how to automate your Linux development environment setup with modular
+  scripts for shells, editors, containers, and security.
 tags:
   - linux
   - dev-environment
@@ -15,20 +15,24 @@ tags:
   - shell-scripting
   - docker
   - security
+  - bash
+  - neovim
 seoPrimaryKeyword: linux development environment setup
 seoSecondaryKeywords:
-  - makefile automation
-  - shell script installation
-  - cross-distribution setup
-  - docker rootless
-  - security hardening
+  - automated linux setup
+  - modular scripts for linux
+  - neovim configuration
+  - docker installation
+  - security hardening linux
 seoOptimized: true
 topicFamily: devtools
 topicFamilyConfidence: 0.95
 topicFamilyNotes: >-
-  The post focuses on configuring and automating a Linux development environment including shell,
-  editor, containers, and system setup, which aligns closely with the 'devtools' family description
-  and example slugs.
+  The post focuses on configuring and automating a Linux development environment
+  including shell, editor, containers, and system setup, which aligns closely
+  with the 'devtools' family description and example slugs.
+kind: project
+id: github-linux-dev-setup
 ---
 
 # Linux Dev Setup: Technical Overview and Implementation Notes
