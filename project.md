@@ -7,8 +7,8 @@ githubUrl: https://github.com/justin-napolitano/linux-dev-setup
 generatedAt: '2025-11-24T21:35:29.007Z'
 source: github-auto
 summary: >-
-  A repository for bootstrapping a Linux development environment with automated
-  tool installation and configuration.
+  A guide to automate the setup of a Linux development environment for headless
+  servers, covering essential tools and configurations.
 tags:
   - linux
   - dev-setup
@@ -16,14 +16,15 @@ tags:
   - docker
   - nix
   - automation
-seoPrimaryKeyword: linux development environment setup
+  - oh-my-zsh
+seoPrimaryKeyword: linux development environment automation
 seoSecondaryKeywords:
-  - automated linux setup
-  - headless server configuration
-  - neovim setup
+  - headless server setup
+  - neovim configuration
   - docker installation
-  - nix flake integration
-  - shell environment setup
+  - linux package management
+  - security hardening tools
+  - nix flake support
 seoOptimized: true
 topicFamily: null
 topicFamilyConfidence: null
