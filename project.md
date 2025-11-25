@@ -7,8 +7,8 @@ githubUrl: https://github.com/justin-napolitano/linux-dev-setup
 generatedAt: '2025-11-24T21:35:29.007Z'
 source: github-auto
 summary: >-
-  A guide to automate the setup of a Linux development environment for headless
-  servers, covering essential tools and configurations.
+  A guide to automate the setup of a Linux development environment for headless servers, covering
+  essential tools and configurations.
 tags:
   - linux
   - dev-setup
@@ -26,8 +26,8 @@ seoSecondaryKeywords:
   - security hardening tools
   - nix flake support
 seoOptimized: true
-topicFamily: null
-topicFamilyConfidence: null
+topicFamily: devtools
+topicFamilyConfidence: 0.9
 kind: project
 entryLayout: project
 showInProjects: true
@@ -124,3 +124,4 @@ dotfiles/               # User dotfiles (assumed)
 ---
 
 This setup aims to simplify and standardize Linux development environment provisioning, especially for headless or remote servers.
+
